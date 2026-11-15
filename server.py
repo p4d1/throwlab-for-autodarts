@@ -34,7 +34,7 @@ def read_local_version():
         with open(version_path, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception:
-        return {"version": "1.2.0", "name": "ThrowLab for Autodarts"}
+        return {"version": "1.3.0", "name": "ThrowLab for Autodarts"}
 
 
 def parse_semver(ver_str):
@@ -146,7 +146,7 @@ class DartTrainerHandler(http.server.SimpleHTTPRequestHandler):
 
     def handle_trainer_update_check(self):
         ver_data = read_local_version()
-        local_ver = ver_data.get("version", "1.2.0")
+        local_ver = ver_data.get("version", "1.3.0")
 
         parsed = urllib.parse.urlparse(self.path)
         qs = urllib.parse.parse_qs(parsed.query)
@@ -250,7 +250,7 @@ class DartTrainerHandler(http.server.SimpleHTTPRequestHandler):
                     {
                         "ok": True,
                         "method": "git",
-                        "version": new_ver.get("version", "1.2.0"),
+                        "version": new_ver.get("version", "1.3.0"),
                         "output": out or "Erfolgreich via Git aktualisiert.",
                     },
                 )
@@ -309,7 +309,7 @@ class DartTrainerHandler(http.server.SimpleHTTPRequestHandler):
                 {
                     "ok": True,
                     "method": "github-zip",
-                    "version": new_ver.get("version", "1.2.0"),
+                    "version": new_ver.get("version", "1.3.0"),
                     "output": f"{updated_count} Dateien erfolgreich aktualisiert.",
                 },
             )
