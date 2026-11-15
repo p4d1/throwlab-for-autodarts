@@ -1,0 +1,16 @@
+{
+  "version": "1.2.0",
+  "date": "2026-11-12",
+  "name": "ThrowLab for Autodarts",
+  "repo": "https://github.com/p4d1/throwlab-for-autodarts",
+  "changelog": [
+    "Neues AutoDarts Trainer Logo (Abart des klassischen 3-Kamera-Arm-Logos)",
+    "Detaillierte Board-Status-Anzeige (Aktiv, Darts ziehen, Gestoppt mit Direkt-Start-Banner, Offline)",
+    "Board-Reset & Start/Stopp direkt oben in der Kopfzeile & im Board-Menü integriert",
+    "Exakte Live-Kamera-Koordinaten der Darts auf dem Live-Board inkl. Koordinaten-Anzeige",
+    "Halve It Smart-Zoom: Automatische Vollansicht bei 'Beliebiges Doppel' & 'Beliebiges Triple', Zoom bevorzugt aktiv",
+    "Schlankere Dart-Anzeige (Aufnahme-beendet-Banner unter den 3 Darts entfernt)",
+    "Integrierter Git / GitHub Versions- & Update-Prüfer (1-Klick-Update)"
+  ]
+}
+
