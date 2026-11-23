@@ -40,3 +40,11 @@ python3 server.py
 
 Klicke oben in der App neben dem Titel auf **`v1.3.0`** → **„🔄 Auf Updates prüfen“** → **„⬇️ Update jetzt installieren“**.
 Der integrierte Updater lädt neue Versionen automatisch (per `git pull` falls über Git geklont, oder direkt als ZIP von GitHub).
+
+---
+
+## ℹ️ Hinweis / Disclaimer
+
+**ThrowLab for Autodarts** ist ein inoffizielles, unabhängiges Community-Projekt und steht in keiner Verbindung zu Autodarts (weder offiziell unterstützt noch zertifiziert).  
+Die App kommuniziert ausschließlich lokal mit deinem eigenen Autodarts Board Manager (`http://localhost:3180`) und greift nicht auf Cloud-APIs von Autodarts zu.
+
