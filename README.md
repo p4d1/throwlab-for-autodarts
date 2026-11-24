@@ -38,7 +38,7 @@ python3 server.py
 
 ## 🔄 Updates (Windows, macOS & Linux)
 
-Klicke oben in der App neben dem Titel auf **`v1.3.0`** → **„🔄 Auf Updates prüfen“** → **„⬇️ Update jetzt installieren“**.
+Klicke oben in der App neben dem Titel auf **`v1.3.1`** → **„🔄 Auf Updates prüfen“** → **„⬇️ Update jetzt installieren“**.
 Der integrierte Updater lädt neue Versionen automatisch (per `git pull` falls über Git geklont, oder direkt als ZIP von GitHub).
 
 ---

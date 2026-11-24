@@ -34,7 +34,7 @@ def read_local_version():
         with open(version_path, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception:
-        return {"version": "1.3.0", "name": "ThrowLab for Autodarts"}
+        return {"version": "1.3.1", "name": "ThrowLab for Autodarts"}
 
 
 def parse_semver(ver_str):

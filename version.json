@@ -1,9 +1,11 @@
 {
-  "version": "1.3.0",
-  "date": "2026-11-15",
+  "version": "1.3.1",
+  "date": "2026-11-24",
   "name": "ThrowLab for Autodarts",
   "repo": "https://github.com/p4d1/throwlab-for-autodarts",
   "changelog": [
+    "Never Ending: Phase 2 standardmäßig auf 'Flexibel' gestellt (alle gängigen Check- & Stellwege wie 52→12→D20, 70→10→60, 63→3→60 erlaubt)",
+    "Never Ending: Doppel-Schutz ab Rest ≤ 50 – Aus-Würfe beim Zielen aufs Doppel geben keine +50/+100 Zusatz-Strafe mehr",
     "Rebranding zu ThrowLab for Autodarts mit eigenem Icon & Repository",
     "Neues Trainingsspiel: Never Ending (501 Double Out mit konfigurierbaren Sektor- & Aus-Strafen)",
     "Neues Trainingsspiel: JDC Challenge (3 Phasen inkl. Shanghai-Bonus & Shirt-Wertung)",

@@ -263,7 +263,7 @@
                             <span class="text-amber-400 font-extrabold text-xs uppercase px-2 py-0.5 rounded bg-amber-400/10 border border-amber-400/25">FOR AUTODARTS</span>
                         </h1>
                         <button type="button" onclick="openSettingsModal('update')" id="header-version-badge" title="Version & Git-Updates prüfen" class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/5 hover:bg-amber-400/20 text-slate-300 hover:text-amber-300 border border-white/10 transition">
-                            v1.3.0
+                            v1.3.1
                         </button>
                         <button type="button" onclick="openSettingsModal('update')" id="header-update-pill" class="hidden items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 animate-pulse">
                             🚀 Update!
@@ -1516,13 +1516,13 @@
                         Phase 2 (&le; 120 Rest): Erlaubte Felder
                     </label>
                     <div class="grid grid-cols-2 gap-2 text-xs font-mono font-bold">
-                        <button type="button" onclick="selectNeverEndingPhase2('strict')" id="ne-p2-strict" class="py-2.5 px-2 rounded-xl border bg-orange-500 text-black border-orange-400 font-black shadow-md">
+                        <button type="button" onclick="selectNeverEndingPhase2('strict')" id="ne-p2-strict" class="py-2.5 px-2 rounded-xl border border-white/10 bg-panelbg text-slate-300 hover:border-orange-400/50">
                             <div>🎯 Strikt</div>
-                            <div class="text-[9px] font-normal opacity-80">Safe-Zone + Finish-Weg</div>
+                            <div class="text-[9px] font-normal opacity-75">Nur 1 Standard-Weg</div>
                         </button>
-                        <button type="button" onclick="selectNeverEndingPhase2('flexible')" id="ne-p2-flexible" class="py-2.5 px-2 rounded-xl border border-white/10 bg-panelbg text-slate-300 hover:border-orange-400/50">
-                            <div>🔀 Flexibel</div>
-                            <div class="text-[9px] font-normal opacity-75">Alles mit Rest &le; 100</div>
+                        <button type="button" onclick="selectNeverEndingPhase2('flexible')" id="ne-p2-flexible" class="py-2.5 px-2 rounded-xl border bg-orange-500 text-black border-orange-400 font-black shadow-md">
+                            <div>🔀 Flexibel (Standard)</div>
+                            <div class="text-[9px] font-normal opacity-80">Alle Checkwege (&le; 100 Rest)</div>
                         </button>
                     </div>
                 </div>
@@ -1536,6 +1536,7 @@
                         <button type="button" onclick="selectNeverEndingMissPenalty(50)" id="ne-miss-50" class="py-2.5 rounded-xl border bg-orange-500 text-black border-orange-400 font-black shadow-md">+50 Pkt</button>
                         <button type="button" onclick="selectNeverEndingMissPenalty(100)" id="ne-miss-100" class="py-2.5 rounded-xl border border-white/10 bg-panelbg text-slate-300 hover:border-orange-400/50">+100 Pkt</button>
                     </div>
+                    <p class="text-[10px] font-mono text-slate-400 mt-1.5">🛡️ Doppel-Schutz: Ab Rest &le; 50 (Finish-Bereich) gibt ein Aus-Wurf keine Zusatz-Strafe.</p>
                 </div>
             </div>
 
@@ -1607,7 +1608,7 @@
                     <div class="flex items-center justify-between gap-2">
                         <div class="flex items-center gap-2">
                             <span class="text-xs font-bold uppercase tracking-wider text-amber-400">🚀 Version & Git-Update</span>
-                            <span id="settings-version-pill" class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-amber-400/15 text-amber-300 border border-amber-400/30">v1.3.0</span>
+                            <span id="settings-version-pill" class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-amber-400/15 text-amber-300 border border-amber-400/30">v1.3.1</span>
                         </div>
                         <button type="button" id="btn-check-updates" onclick="checkForAppUpdates(true)" class="px-2.5 py-1 rounded-lg bg-cardbg hover:bg-white/10 border border-white/10 text-xs font-mono font-bold text-amber-300 transition">
                             🔄 Auf Updates prüfen
@@ -1642,7 +1643,7 @@
         // P4DI DART TRAINER - LOCAL ENGINE & AUTODARTS INTEGRATION
         // =========================================================================
 
-        const APP_VERSION = '1.3.0';
+        const APP_VERSION = '1.3.1';
 
         function getDefaultHost() {
             const saved = localStorage.getItem('autodarts_host');
@@ -1709,7 +1710,7 @@
             startScore: 501,
             penaltyMultiplier: 2,
             missPenalty: 50,
-            phase2Mode: 'strict' // 'strict' (Safe-Zone + Checkout-Guide) | 'flexible' (Rest <= 100)
+            phase2Mode: 'flexible' // 'flexible' (all checkout paths <= 100) | 'strict' (Safe-Zone + 1 recommended guide)
         };
 
         const ALL_DOUBLES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25];
@@ -2325,7 +2326,7 @@
                     </div>
                     <p class="text-xs text-slate-400">
                         • <strong>Single-Schutz:</strong> Auf einem direkten Doppel-Finish (z. B. 32 &rarr; D16) bleibt auch das passende Single (S16) straffrei.<br>
-                        • <strong>Aus-Wurf (Miss / 0 Pkt):</strong> Kostet aktuell <strong>+${neverEndingConfig.missPenalty} Strafpunkte</strong> (einstellbar: 0 / +50 / +100).<br>
+                        • <strong>Aus-Wurf (Miss / 0 Pkt):</strong> Kostet aktuell <strong>+${neverEndingConfig.missPenalty} Strafpunkte</strong> (ab Rest &le; 50 straffrei durch Doppel-Schutz).<br>
                         • Über „⚙️ Anpassen“ kannst du Startscore (501/301), Straf-Faktor (1&times;/2&times;/3&times;) und Aus-Strafe einstellen.
                     </p>
                 `;
@@ -2963,7 +2964,8 @@
                 }
 
                 if (t.multiplier === 0 || dartVal === 0) {
-                    if (neverEndingConfig.missPenalty > 0) {
+                    // Double-out protection: no outside-miss penalty when in direct finish range (<= 50)
+                    if (neverEndingConfig.missPenalty > 0 && rem > 50) {
                         const missPen = neverEndingConfig.missPenalty;
                         rem = rem + missPen;
                         t.neStatus = 'PENALTY';
